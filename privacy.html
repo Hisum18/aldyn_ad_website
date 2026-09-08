@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Aldyn</title>
+<meta name="description" content="Aldyn's privacy policy. Aldyn runs entirely on your Mac; Nrdyn operates no server it talks to and receives no telemetry, analytics or copies of your mail.">
+<link rel="canonical" href="https://aldyn.nrdyn.com/privacy">
+<meta name="theme-color" content="#0B0C10">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Aldyn">
+<meta property="og:title" content="Privacy — Aldyn">
+<meta property="og:description" content="Aldyn runs entirely on your Mac. Nrdyn operates no server it talks to and receives no copies of your mail.">
+<meta property="og:url" content="https://aldyn.nrdyn.com/privacy">
+<meta property="og:image" content="https://aldyn.nrdyn.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://aldyn.nrdyn.com/assets/og-image.png">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <nav class="nav">
+    <a class="brand" href="/"><img src="/assets/mark.webp" alt="" width="34" height="34">Aldyn</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/install">Install</a>
+      <a href="/support">Support</a>
+      <a class="btn" href="mailto:info@nrdyn.com?subject=Aldyn%20access">Request access</a>
+    </div>
+  </nav>
+</div>
+
+<main class="prose" id="main">
+  <p class="eyebrow">Privacy</p>
+  <h1>Privacy Policy</h1>
+  <p class="muted">Aldyn, by Nrdyn LLC. Last updated 8 September 2026.</p>
+
+  <p class="lead">Aldyn is software you install and run on your own Mac. Nrdyn operates no service that Aldyn connects to, holds no account for you, and never receives your mail, your documents or your clients' information. This policy explains what that means concretely, and — just as importantly — where data <em>does</em> go when you use the AI features.</p>
+
+  <h2 id="collect">What Nrdyn collects</h2>
+  <p><b>From the application: nothing.</b> Aldyn contains no analytics, no telemetry, no crash reporting, no usage beacons and no third-party SDKs. It does not phone home, check in, or transmit anything to Nrdyn — including at install time, at launch, and while running.</p>
+  <p><b>From this website:</b> these pages are static and carry no cookies, no analytics and no tracking scripts. Our host records standard server request logs (IP address, timestamp, requested URL, user agent) for security and reliability, which we do not use to build a profile of you.</p>
+  <p><b>If you email us:</b> we receive whatever you send — your name, address and the contents of your message — and keep it as ordinary business correspondence so we can answer you and provide support.</p>
+
+  <h2 id="local">What Aldyn stores on your machine</h2>
+  <p>All of it stays on your disk, in a Postgres database and a data directory that belong to you:</p>
+  <ul>
+    <li>Email fetched from the mailboxes you connect — headers, bodies and attachments, from <code>INBOX</code> and Sent Mail.</li>
+    <li>Text extracted from those attachments (PDF, DOCX, images, ZIP contents) so it can be searched.</li>
+    <li>The case records built from that mail: businesses, attorneys, notices, deadlines, action items, drafts and scope assessments.</li>
+    <li>Your profile and signature, and your app settings.</li>
+    <li>An audit log of actions taken in the app.</li>
+    <li>Your Gmail App Passwords, <b>encrypted at rest</b> with a key derived from your vault passphrase (PBKDF2 + Fernet).</li>
+  </ul>
+  <p>Aldyn's database and cache run as Docker containers on your machine and are bound to <code>localhost</code>. The application listens on <code>localhost:8000</code> only, with no inbound network exposure.</p>
+  <p>Your vault passphrase is never stored — it derives the encryption key each time you unlock. Neither Nrdyn nor anyone else can recover it or decrypt your credentials without it.</p>
+
+  <h2 id="third-parties">Where data goes when you use the AI</h2>
+  <p>This is the part worth reading closely, because "local-first" does not mean "nothing ever leaves the machine."</p>
+  <p>Aldyn has no AI model of its own. It exposes itself to <b>Claude Desktop</b> — Anthropic's application, installed and signed in by you — through a local MCP server. When you use an AI feature (filing a message, drafting a reply, summarizing a thread, running a Defense check), the relevant email content, documents and case details are read by Claude Desktop and <b>transmitted to Anthropic for processing</b>, exactly as they would be if you had pasted them into Claude yourself.</p>
+  <p>That processing happens under <b>your own subscription and your own agreement with Anthropic</b> — including their retention and training practices, which you should review at <a href="https://www.anthropic.com/legal/privacy" rel="noopener">anthropic.com/legal/privacy</a>. Nrdyn is not a party to it, receives no copy, and has no visibility into it.</p>
+  <p>If you would rather no case content reach a third party, don't run the AI brain. Mail, filing, cases, deadlines, documents and full-text search all work with the AI switched off.</p>
+  <p>Two other parties are involved by design, both because you chose them:</p>
+  <ul>
+    <li><b>Google.</b> Aldyn connects directly from your machine to Gmail over IMAP and SMTP using an App Password you generate. Nothing is proxied through us. Your mail remains subject to Google's terms and your own Google account settings.</li>
+    <li><b>Docker.</b> Docker Desktop runs the local containers. It handles no case data of its own.</li>
+  </ul>
+
+  <h2 id="controller">Who is responsible for the data</h2>
+  <p>Because the data never reaches us, <b>you are the controller of it</b> in every practical and legal sense. If you are an accountant, enrolled agent or attorney, your existing confidentiality obligations to your clients apply to this machine exactly as they apply to your filing cabinet. Aldyn gives you local encryption and an audit trail; disk encryption, device security, physical access and backups remain yours to manage.</p>
+
+  <h2 id="retention">Retention and deletion</h2>
+  <p>Aldyn keeps data until you delete it — there is no server-side copy with a retention clock. To remove everything, run <code>Uninstall.command</code> from the installer, which stops the stack and deletes the app, its configuration and its database. That is irreversible, so export or back up first if you need the history. Individual records can be deleted inside the app.</p>
+  <p>Deleting Aldyn does not delete anything from Gmail. Aldyn reads your mailbox; it is not the system of record for it.</p>
+
+  <h2 id="children">Children</h2>
+  <p>Aldyn is professional software for accountants, tax practitioners and business owners. It is not directed at children and is not intended for anyone under 18.</p>
+
+  <h2 id="changes">Changes to this policy</h2>
+  <p>If we change how Aldyn handles data, we'll update this page and the date at the top, and note the change in the release notes for the version that introduces it. Because Aldyn runs locally, a policy change never applies retroactively to a version you have already installed.</p>
+
+  <h2 id="contact">Contact</h2>
+  <p>Questions about this policy, or about how Aldyn handles a specific kind of data: <a href="mailto:info@nrdyn.com?subject=Aldyn%20privacy">info@nrdyn.com</a>.</p>
+  <p class="muted">Nrdyn LLC · <a href="https://nrdyn.com/" rel="noopener">nrdyn.com</a></p>
+
+  <hr>
+  <p class="muted">This policy describes data handling. It is not legal advice, and Aldyn's Defense check is not a legal opinion or a substitute for professional representation.</p>
+</main>
+
+<div class="wrap">
+  <footer>
+    <div>
+      <a href="/install">Install</a><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="mailto:info@nrdyn.com">info@nrdyn.com</a>
+    </div>
+    <div>© 2026 Nrdyn LLC.</div>
+  </footer>
+</div>
+</body>
+</html>

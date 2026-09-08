@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install walkthrough — Aldyn</title>
+<meta name="description" content="Step-by-step walkthrough for installing Aldyn on macOS: prerequisites, the .dmg install, first-run onboarding with a Gmail App Password, connecting Claude Desktop as the AI brain, and validation.">
+<link rel="canonical" href="https://aldyn.nrdyn.com/install">
+<meta name="theme-color" content="#0B0C10">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Aldyn">
+<meta property="og:title" content="Install walkthrough — Aldyn">
+<meta property="og:description" content="What happens when you install Aldyn on a Mac: prerequisites, the installer, onboarding, and connecting Claude Desktop as the AI brain.">
+<meta property="og:url" content="https://aldyn.nrdyn.com/install">
+<meta property="og:image" content="https://aldyn.nrdyn.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://aldyn.nrdyn.com/assets/og-image.png">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Install Aldyn on macOS",
+  "description": "Install Aldyn — local-first IRS-notice and attorney-communication management — on a Mac, and connect Claude Desktop as the AI brain.",
+  "totalTime": "PT15M",
+  "supply": [
+    { "@type": "HowToSupply", "name": "The Aldyn .dmg installer, sent to you by Nrdyn" }
+  ],
+  "tool": [
+    { "@type": "HowToTool", "name": "macOS 12 or later, Apple Silicon or Intel" },
+    { "@type": "HowToTool", "name": "Docker Desktop" },
+    { "@type": "HowToTool", "name": "Claude Desktop with an active Claude subscription" }
+  ],
+  "step": [
+    { "@type": "HowToStep", "name": "Install the prerequisites", "text": "Install Docker Desktop and leave it running, and install Claude Desktop and sign in.", "url": "https://aldyn.nrdyn.com/install#step-1" },
+    { "@type": "HowToStep", "name": "Drag Aldyn to Applications", "text": "Open the .dmg and drag the Aldyn icon onto the Applications folder shown in the window.", "url": "https://aldyn.nrdyn.com/install#step-2" },
+    { "@type": "HowToStep", "name": "Open it once by right-clicking", "text": "In Applications, right-click Aldyn and choose Open, then Open again in the dialog. This is only needed on the first launch.", "url": "https://aldyn.nrdyn.com/install#step-3" },
+    { "@type": "HowToStep", "name": "Let the first launch self-install", "text": "Aldyn verifies Docker, loads its bundled images, starts the stack, and registers itself with Claude Desktop, then opens at localhost:8000.", "url": "https://aldyn.nrdyn.com/install#step-4" },
+    { "@type": "HowToStep", "name": "Onboard", "text": "Set a vault passphrase and connect one or more Gmail accounts using a Google App Password.", "url": "https://aldyn.nrdyn.com/install#step-5" },
+    { "@type": "HowToStep", "name": "Start the AI brain", "text": "Restart Claude Desktop so it loads the Aldyn MCP server, then start a Claude Cowork session with the brain prompt.", "url": "https://aldyn.nrdyn.com/install#step-6" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <nav class="nav">
+    <a class="brand" href="/"><img src="/assets/mark.webp" alt="" width="34" height="34">Aldyn</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/install" aria-current="page">Install</a>
+      <a href="/support">Support</a>
+      <a class="btn" href="mailto:info@nrdyn.com?subject=Aldyn%20access">Request access</a>
+    </div>
+  </nav>
+</div>
+
+<main class="prose" id="main">
+  <p class="eyebrow">Install walkthrough</p>
+  <h1>Getting Aldyn onto your Mac</h1>
+  <p class="lead">Aldyn isn't distributed through an app store, because it isn't a cloud product — it brings its own database and runs entirely on your machine. We send you the installer directly. Everything below is what actually happens, start to finish, so you know what you're agreeing to before you ask for it.</p>
+  <p class="muted">About 10–15 minutes including prerequisites. Roughly two of those minutes are Aldyn's own install.</p>
+
+  <div class="cta spaced-lg">
+    <a class="btn" href="mailto:info@nrdyn.com?subject=Aldyn%20access">Request the installer</a>
+  </div>
+
+  <h2 id="requirements">What you need first</h2>
+  <ul class="reqs">
+    <li><b>macOS 12+</b> Monterey or later</li>
+    <li><b>Apple Silicon or Intel</b></li>
+    <li><b>~10 GB</b> free disk</li>
+    <li><b>An admin user</b> to install into Applications</li>
+  </ul>
+  <p>Two applications have to be on the machine before Aldyn will finish setting itself up. Aldyn bundles everything else — its own app image, Postgres, Redis, config and installer — inside the single <code>.dmg</code>.</p>
+  <ol>
+    <li><b><a href="https://www.docker.com/products/docker-desktop/" rel="noopener">Docker Desktop</a></b> — hosts Aldyn's database and services. Install it and leave it running; the whale in the menu bar should be <b>steady</b>, not animated.</li>
+    <li><b><a href="https://claude.ai/download" rel="noopener">Claude Desktop</a></b> with an active Claude subscription (Pro or Max) — this is the AI brain. There is no local model, no API key and no per-token cost.</li>
+  </ol>
+  <div class="note">
+    <p><b>No GPU, no Ollama, no server.</b> The heavy reasoning happens inside Claude Desktop on your subscription. Aldyn listens on <code>localhost:8000</code> only, so there are no firewall or network changes to make.</p>
+  </div>
+
+  <h2 id="step-1">1. Get the installer</h2>
+  <p>Email <a href="mailto:info@nrdyn.com?subject=Aldyn%20access">info@nrdyn.com</a> and tell us a little about your practice. We'll send you a download link for <code>aldyn-&lt;version&gt;-mac.dmg</code> along with the deployment guide. Copy it to the Mac you'll be running it on.</p>
+
+  <h2 id="step-2">2. Drag Aldyn into Applications</h2>
+  <p>Double-click the <code>.dmg</code>. A Finder window opens showing the Aldyn icon and an Applications shortcut. Drag <b>Aldyn</b> onto <b>Applications</b>.</p>
+  <p class="muted">Running it straight from the mounted disk image won't work — Aldyn will ask you to move it to Applications first, because it needs a stable location to install itself into.</p>
+
+  <h2 id="step-3">3. Open it once by right-clicking</h2>
+  <p>Go to your Applications folder, <b>right-click Aldyn</b> and choose <b>Open</b>, then <b>Open</b> again in the dialog that appears.</p>
+  <div class="note warn">
+    <p><b>Why the extra step?</b> Aldyn is unsigned, so a normal double-click gets you macOS's "unidentified developer" warning. Right-click → Open is Apple's own way of approving an app you trust, and you only do it once — every launch after this is a normal double-click.</p>
+    <p>On macOS Sequoia the <b>Open</b> button is sometimes missing from that dialog. If so, dismiss it and go to <b>System Settings → Privacy &amp; Security</b>, scroll down, and click <b>Open Anyway</b>.</p>
+  </div>
+
+  <h2 id="step-4">4. Let the first launch install itself</h2>
+  <p>This takes one to three minutes and shows progress as it goes. Without any input from you, Aldyn:</p>
+  <ul>
+    <li>verifies Docker Desktop is running, and starts it if it isn't;</li>
+    <li>turns on Docker's "start when you sign in" setting, so the stack survives a reboot;</li>
+    <li>generates a per-machine session secret;</li>
+    <li>loads its bundled container images and starts the stack — <code>aldyn_web</code>, <code>aldyn_worker</code>, <code>aldyn_postgres</code>, <code>aldyn_redis</code>;</li>
+    <li>applies the database schema;</li>
+    <li>registers the Aldyn MCP server in Claude Desktop's config, keeping a backup of the original.</li>
+  </ul>
+  <p>It then opens <b><code>http://localhost:8000</code></b> and shows a "ready" dialog. Eject the DMG — right-click the disk icon on your desktop and choose Eject.</p>
+
+  <h2 id="step-5">5. Onboarding: passphrase and mailboxes</h2>
+  <p>The first visit lands you in onboarding.</p>
+  <h3>Set a vault passphrase</h3>
+  <p>At least 8 characters. This encrypts your credentials and taxpayer data at rest, and you'll re-enter it to unlock Aldyn after a restart.</p>
+  <div class="note warn">
+    <p><b>Write it down somewhere safe.</b> The passphrase <i>derives</i> the encryption key — it isn't stored anywhere, so there is no reset and no recovery. Losing it means resetting the database and starting onboarding over.</p>
+  </div>
+  <h3>Connect Gmail with an App Password</h3>
+  <p>Aldyn signs in with a Google <b>App Password</b>, never your real password.</p>
+  <ol>
+    <li>Turn on <b>2-Step Verification</b> on the Google account (<a href="https://myaccount.google.com/security" rel="noopener">myaccount.google.com/security</a>).</li>
+    <li>Create an App Password for "Mail" (<a href="https://myaccount.google.com/apppasswords" rel="noopener">myaccount.google.com/apppasswords</a>) and copy the 16-character string.</li>
+    <li>Enter the address and App Password in Aldyn. It's verified against IMAP and SMTP before anything is saved, then encrypted locally with your passphrase (PBKDF2 + Fernet).</li>
+  </ol>
+  <p>Optionally add a first business and attorney. Within about 60 seconds the poller starts pulling recent mail from <code>INBOX</code> and <code>[Gmail]/Sent Mail</code>.</p>
+  <h3>Add more mailboxes any time</h3>
+  <p><b>Settings → Email → Connected Gmail accounts → Add.</b> Every connected inbox flows into one Mail view; each thread shows an account badge, replies go out from the mailbox that received the original, and Compose gets a "From" picker.</p>
+
+  <h2 id="step-6">6. Start the AI brain</h2>
+  <ol>
+    <li><b>Quit and reopen Claude Desktop</b> (<kbd>⌘Q</kbd>, then launch it again) so it picks up the Aldyn MCP server that the installer registered.</li>
+    <li>Start a <b>Claude Cowork</b> session and paste in the brain prompt we send with the installer. Leave it running — that session is the continuous brain that triages mail and drains Aldyn's request queue.</li>
+    <li>The "AI brain offline" banner in Aldyn clears once it connects.</li>
+  </ol>
+  <div class="note">
+    <p><b>One brain at a time.</b> There's also a hands-off Claude Code <code>/loop</code> variant if you prefer it, but run one or the other — never both against the same install.</p>
+    <p>If Claude Desktop isn't running, Aldyn simply shows a banner asking you to open it. Mail, filing, cases, deadlines and document search all keep working without the AI.</p>
+  </div>
+
+  <h2 id="validate">7. Check it worked</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Check</th><th>What you should see</th></tr></thead>
+    <tbody>
+      <tr><td>Containers running</td><td><code>docker ps</code> lists <code>aldyn_web</code>, <code>aldyn_worker</code>, <code>aldyn_postgres</code> and <code>aldyn_redis</code>, all <b>Up</b></td></tr>
+      <tr><td>App responds</td><td><code>http://localhost:8000</code> loads, or <code>curl -fsS http://localhost:8000/healthz</code> returns 200</td></tr>
+      <tr><td>Launcher in place</td><td><code>/Applications/Aldyn.app</code> exists and opens</td></tr>
+      <tr><td>Config written</td><td><code>~/Library/Application Support/aldyn/</code> contains <code>.env</code> and <code>docker-compose.yml</code></td></tr>
+      <tr><td>Claude wired up</td><td>Claude Desktop's config file contains an <code>mcpServers.aldyn</code> entry</td></tr>
+      <tr><td>Survives a reboot</td><td>Docker → Settings → General → "Start Docker Desktop when you sign in" is <b>on</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 id="it">Managed and scripted deployment</h2>
+  <p>For IT or MDM rollouts there's a non-interactive path that produces an identical result with no Gatekeeper prompts. Run it as the target user — the install writes to their <code>~/Library</code> and talks to their Docker.</p>
+  <pre><code># 1) Place the app
+cp -R "/Volumes/Aldyn &lt;version&gt;/Aldyn.app" "/Applications/Aldyn.app"
+
+# 2) Clear the quarantine flag — this is what avoids the Gatekeeper prompt
+xattr -dr com.apple.quarantine "/Applications/Aldyn.app"
+
+# 3) Run the bundled installer
+"/Applications/Aldyn.app/Contents/Resources/app-install.sh"</code></pre>
+  <p>The installer is idempotent, prints progress to stdout and exits 0 on success. Docker Desktop must be present and running. The DMG also ships a double-clickable <code>Install.command</code> that does the same three steps in a visible Terminal window.</p>
+
+  <h2 id="whats-installed">What ends up on the machine</h2>
+  <ul>
+    <li><code>/Applications/Aldyn.app</code> — the launcher, plus the bundled installer and container images so the app can repair itself. The image tars are around 300 MB and stay inside the bundle by design.</li>
+    <li><code>~/Library/Application Support/aldyn/</code> — <code>docker-compose.yml</code>, <code>.env</code> with the session secret, and the Postgres data volume.</li>
+    <li>Docker images <code>aldyn-app</code>, <code>pgvector/pgvector:pg16</code> and <code>redis:7-alpine</code>, running as four containers set to <code>restart: unless-stopped</code>.</li>
+    <li>An <code>mcpServers.aldyn</code> entry in Claude Desktop's config, pointing at the MCP server inside the running container.</li>
+  </ul>
+
+  <h2 id="uninstall">Backups and uninstalling</h2>
+  <p>Two things make up your data: the Postgres database and the attachments directory. Back both up together.</p>
+  <pre><code>docker exec aldyn_postgres pg_dump -U aldyn aldyn &gt; backup.sql</code></pre>
+  <p>To remove Aldyn, double-click <b><code>Uninstall.command</code></b> in the DMG and type <code>uninstall</code> to confirm. It stops the stack and removes the app, its config and <b>all of its data</b> — there is no undo, so take a backup first if you might want the case history later.</p>
+
+  <h2 id="trouble">If something goes wrong</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>What you see</th><th>Why</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>"Unidentified developer", can't open</td><td>The app is unsigned</td><td>Right-click → <b>Open</b> once, or System Settings → Privacy &amp; Security → <b>Open Anyway</b></td></tr>
+      <tr><td>"Please drag Aldyn into Applications"</td><td>You opened it from the mounted DMG</td><td>Drag it to <code>/Applications</code> and open it from there</td></tr>
+      <tr><td>Setup dialog reports a failure</td><td>Docker wasn't ready</td><td>Open Docker Desktop, wait for the steady whale, open Aldyn again. Details in <code>/tmp/aldyn-install.log</code></td></tr>
+      <tr><td>500 errors or "connection refused"</td><td>Docker or the containers are down</td><td>Open Docker Desktop, then re-open Aldyn — it brings the stack back up itself</td></tr>
+      <tr><td>"AI brain offline" won't clear</td><td>Claude Desktop hasn't loaded the tool list, or no Cowork session is draining the queue</td><td>Quit and reopen Claude Desktop, then start the Cowork session</td></tr>
+      <tr><td>AI actions sit on "Claude is working…"</td><td>Nothing is draining the request queue</td><td>Start or restart the Cowork brain session</td></tr>
+      <tr><td>Gmail won't connect</td><td>You used the account password</td><td>Use a Google <b>App Password</b> — 2-Step Verification has to be on first</td></tr>
+      <tr><td>Onboarding finished but no mail arrived</td><td>Gmail rejected the App Password</td><td>Confirm 2FA is on, generate a fresh App Password, re-add the account in Settings</td></tr>
+      <tr><td>Locked out after a restart</td><td>The vault passphrase hasn't been re-entered</td><td>Open Aldyn and unlock</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Still stuck? <a href="/support">Support</a>, or email <a href="mailto:info@nrdyn.com?subject=Aldyn%20install">info@nrdyn.com</a> — include the version and, if setup failed, <code>/tmp/aldyn-install.log</code>.</p>
+
+  <hr>
+  <p class="muted">Aldyn is proprietary software from Nrdyn LLC and is licensed, not sold. Docker and Docker Desktop are trademarks of Docker, Inc. Claude is a trademark of Anthropic, PBC. Gmail and Google are trademarks of Google LLC. macOS is a trademark of Apple Inc. Aldyn is not affiliated with, endorsed by, or sponsored by any of them, or by the Internal Revenue Service.</p>
+</main>
+
+<div class="wrap">
+  <footer>
+    <div>
+      <a href="/install">Install</a><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="mailto:info@nrdyn.com">info@nrdyn.com</a>
+    </div>
+    <div>© 2026 Nrdyn LLC.</div>
+  </footer>
+</div>
+</body>
+</html>

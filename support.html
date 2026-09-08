@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Aldyn</title>
+<meta name="description" content="Help and frequently asked questions for Aldyn — local-first IRS-notice and attorney-communication management for accountants on macOS.">
+<link rel="canonical" href="https://aldyn.nrdyn.com/support">
+<meta name="theme-color" content="#0B0C10">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Aldyn">
+<meta property="og:title" content="Support — Aldyn">
+<meta property="og:description" content="Help and frequently asked questions for Aldyn, the local-first IRS notice and attorney case manager for macOS.">
+<meta property="og:url" content="https://aldyn.nrdyn.com/support">
+<meta property="og:image" content="https://aldyn.nrdyn.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://aldyn.nrdyn.com/assets/og-image.png">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Aldyn?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Aldyn is local-first IRS-notice and attorney-communication management for accountants. It ingests your Gmail over IMAP and turns each inbound attorney or IRS email — body, subject and attachments — into an organized case: filed to the right business and attorney, with deadlines tracked, replies drafted and scope assessed. It runs entirely on your Mac." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an API key or pay per token?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Aldyn's AI brain is Claude Desktop running on your own Claude subscription, connected over a local MCP server. There is no Anthropic API key to manage and no per-token billing from Aldyn." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which email providers does Aldyn support?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Gmail, using a Google App Password over IMAP and SMTP. You can connect any number of Gmail accounts; they all flow into a single Mail view with a per-account filter." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the AI send email on my behalf?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The AI files mail, extracts deadlines, summarizes threads and drafts replies, but it cannot send. Every outbound message waits in Aldyn's composer until you send it yourself." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my client data go to Nrdyn?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Aldyn contains no telemetry or analytics and Nrdyn operates no server it connects to. Note that AI features pass case content to Claude Desktop, which processes it with Anthropic under your own Claude subscription and agreement." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I forget my vault passphrase?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There is no recovery. The passphrase derives the encryption key and is never stored, so a forgotten passphrase means resetting the database and re-onboarding. Record it somewhere safe." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Aldyn run on Windows?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The shipping product is macOS 12 or later, delivered as a .dmg. Windows is not supported today." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <nav class="nav">
+    <a class="brand" href="/"><img src="/assets/mark.webp" alt="" width="34" height="34">Aldyn</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/install">Install</a>
+      <a href="/support" aria-current="page">Support</a>
+      <a class="btn" href="mailto:info@nrdyn.com?subject=Aldyn%20access">Request access</a>
+    </div>
+  </nav>
+</div>
+
+<main class="prose" id="main">
+  <p class="eyebrow">Support</p>
+  <h1>Aldyn Support</h1>
+  <p class="lead">Aldyn turns every IRS notice and attorney email into a managed case on your own Mac. If something isn't behaving, start with the install page's <a href="/install#trouble">troubleshooting table</a> — it covers the great majority of what goes wrong, and nearly all of it is Docker or Claude Desktop not being awake.</p>
+
+  <h2 id="contact">Get help</h2>
+  <p>Email <a href="mailto:info@nrdyn.com?subject=Aldyn%20support">info@nrdyn.com</a>. It helps enormously if you include:</p>
+  <ul>
+    <li>your Aldyn version and macOS version;</li>
+    <li>what you were doing and what you expected instead;</li>
+    <li>whether Docker Desktop and Claude Desktop were both running;</li>
+    <li>if the installer failed, the contents of <code>/tmp/aldyn-install.log</code>.</li>
+  </ul>
+  <div class="note warn">
+    <p><b>Don't send us client data.</b> Aldyn is built so that taxpayer information never reaches us, and support shouldn't be the exception. Redact names, amounts and identifiers from anything you paste into an email — a screenshot of the error and the surrounding UI is almost always enough.</p>
+  </div>
+
+  <h2 id="basics">The basics</h2>
+
+  <h3>What is Aldyn, in one paragraph?</h3>
+  <p>It ingests your Gmail over IMAP and turns each inbound attorney or IRS email — body, subject and attachments — into a fully organized case: filed to the right business and attorney, with each ask tracked as its own deadline, a reply drafted, and the request assessed against your engagement letter. You work entirely inside Aldyn; you never open Gmail and never upload anything by hand.</p>
+
+  <h3>Do I need an API key, or pay per token?</h3>
+  <p>No. The AI brain is Claude Desktop, connected to Aldyn through a local MCP server, running on the Claude subscription you already have. There's no Anthropic API key to manage and no metered billing from Aldyn.</p>
+
+  <h3>Which email providers work?</h3>
+  <p>Gmail, over IMAP and SMTP with a Google App Password. You can connect as many Gmail accounts as you like — they all land in one Mail view, each thread carries an account badge, replies go out from the mailbox that received the original, and Compose has a "From" picker.</p>
+
+  <h3>Does Aldyn run on Windows or Linux?</h3>
+  <p>The shipping product is macOS 12 or later, delivered as a <code>.dmg</code>. Windows isn't supported today. If that's a blocker for your practice, tell us — it's useful to know.</p>
+
+  <h2 id="ai">The AI brain</h2>
+
+  <h3>Can it send email on my behalf?</h3>
+  <p>No, and this is deliberate. The AI reads, files, extracts deadlines, summarizes threads, proposes completions and writes drafts. It has no send capability. Every outbound message sits in Aldyn's composer until you read it and click send.</p>
+
+  <h3>What happens if Claude Desktop isn't running?</h3>
+  <p>Aldyn shows an "AI brain offline" banner and everything else keeps working — mail, filing, cases, deadlines, entities, documents and full-text search are all unaffected. Open Claude Desktop and start the Cowork brain session and the banner clears.</p>
+
+  <h3>AI actions are stuck on "Claude is working…"</h3>
+  <p>Nothing is draining Aldyn's request queue. Start or restart the Cowork session with the brain prompt. If Claude can't see Aldyn's tools at all, quit Claude Desktop entirely (<kbd>⌘Q</kbd>) and reopen it — it only loads the MCP tool list at launch, so a version update can leave it holding a stale list.</p>
+
+  <h3>Is the Defense check legal advice?</h3>
+  <p>No. It's an independent second read of the case file — scope plus tax-law analysis against your engagement letter — meant to surface gaps and overreach you can raise with your representation. It is not a legal opinion, not tax advice, and not a substitute for a qualified professional. You stay responsible for every filing and every response.</p>
+
+  <h3>Does my client data go to Nrdyn?</h3>
+  <p>No. Aldyn has no telemetry and no server of ours to talk to. It's worth being precise about the one place data does travel, though: AI features pass the relevant case content to Claude Desktop, which sends it to Anthropic for processing under <em>your</em> subscription and agreement. The <a href="/privacy#third-parties">privacy policy</a> covers this in detail. Run without the AI brain and nothing leaves the machine at all.</p>
+
+  <h2 id="running">Day to day</h2>
+
+  <h3>I restarted my Mac and Aldyn is locked</h3>
+  <p>That's expected — the vault re-locks and needs your passphrase to derive the decryption key again. Open Aldyn and unlock.</p>
+
+  <h3>I've forgotten my vault passphrase</h3>
+  <p>There's no recovery path, by design. The passphrase isn't stored anywhere; it derives the encryption key each time. Recovering means resetting the database and re-onboarding, which loses local case history — so restore from a backup if you have one.</p>
+
+  <h3>Onboarding finished but no mail appeared</h3>
+  <p>Almost always the App Password. Confirm 2-Step Verification is on for the Google account, generate a fresh 16-character App Password, and re-add the account under <b>Settings → Email</b>. The first poll usually lands within about 60 seconds.</p>
+
+  <h3>How do I add another mailbox?</h3>
+  <p><b>Settings → Email → Connected Gmail accounts → Add.</b> The address and App Password are verified against IMAP and SMTP before anything is saved.</p>
+
+  <h3>How do updates work?</h3>
+  <p>We send you a new <code>.dmg</code>. Replace the app in <code>/Applications</code> and launch it — your database and attachments live outside the app bundle, in <code>~/Library/Application Support/aldyn/</code>, so your cases and mail carry across. If a particular release needs more than that, the release notes will say so. Take a backup before any upgrade.</p>
+
+  <h3>How do I back up?</h3>
+  <p>Two pieces: the Postgres database and the attachments directory. Back them up together.</p>
+  <pre><code># backup
+docker exec aldyn_postgres pg_dump -U aldyn aldyn &gt; backup.sql
+
+# restore
+docker exec -i aldyn_postgres psql -U aldyn -d aldyn &lt; backup.sql</code></pre>
+  <p>Attachments live under the <code>data/attachments/</code> directory alongside the database — copy that too, or the restored records will point at files that aren't there.</p>
+
+  <h3>How do I uninstall?</h3>
+  <p>Double-click <code>Uninstall.command</code> in the DMG and type <code>uninstall</code> to confirm. It stops the containers and removes the app, its config and all its data, with no undo — so back up first if there's history you want. Your Gmail is untouched.</p>
+
+  <h2 id="more">More</h2>
+  <p><a href="/install">Full install walkthrough</a> · <a href="/install#trouble">Troubleshooting table</a> · <a href="/privacy">Privacy policy</a></p>
+
+  <hr>
+  <p class="muted">Aldyn is proprietary software from Nrdyn LLC. It is a case-management and correspondence tool; it does not provide tax, legal or accounting advice, and it is not affiliated with or endorsed by the Internal Revenue Service.</p>
+</main>
+
+<div class="wrap">
+  <footer>
+    <div>
+      <a href="/install">Install</a><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="mailto:info@nrdyn.com">info@nrdyn.com</a>
+    </div>
+    <div>© 2026 Nrdyn LLC.</div>
+  </footer>
+</div>
+</body>
+</html>
