@@ -1,0 +1,35 @@
+# Deploy config for aldyn.nrdyn.com.
+#
+# Plain static site: no framework and no build command. Netlify serves the repo
+# root as-is. Its asset server resolves an extensionless path (/support) to
+# support.html natively, so clean URLs need no post-processing — the same
+# behaviour nrdyn.com relies on.
+
+[build]
+  publish = "."
+
+[build.processing]
+  skip_processing = true
+
+# ─── Headers ───
+# The site ships no JavaScript, so script-src is 'none'. The JSON-LD blocks are
+# <script type="application/ld+json">, which browsers never execute, so CSP does
+# not apply to them and search engines still read them.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; font-src 'self'; form-action 'none'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Screenshots never change in place (a new shot is a new file), so cache them
+# hard. Deliberately NOT applied to assets/site.css: an immutable stylesheet
+# would pin an old design in visitors' caches for a year after an edit.
+[[headers]]
+  for = "/assets/shots/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -5,6 +5,8 @@ attorney-communication management for accountants, by Nrdyn LLC.
 
 Plain static HTML and one stylesheet. No build step, no dependencies, no JavaScript.
 
+Live at **https://aldyn.nrdyn.com**.
+
 ## Pages
 
 | File | URL (clean URLs are on) | Purpose |
@@ -14,35 +16,34 @@ Plain static HTML and one stylesheet. No build step, no dependencies, no JavaScr
 | `support.html` | `/support` | FAQ and troubleshooting |
 | `privacy.html` | `/privacy` | Privacy policy |
 
-## Deploying to Vercel
+## Deploying (Netlify)
 
-Import the repo and deploy — there is no framework and no build command. Vercel
-serves the directory as-is; `vercel.json` turns on clean URLs and sets the
-security and cache headers.
+The site is deployed on Netlify from this repo (`aldyn-nrdyn/aldyn_website`):
+there is no framework and no build command, the publish directory is the repo
+root, and `netlify.toml` turns on the security and cache headers. Netlify's
+asset server resolves the clean URLs (`/install` → `install.html`) natively.
+Pushing to `main` deploys.
 
-Or from the CLI:
+`vercel.json` is kept so the site can also be deployed as-is to Vercel, with
+the same clean URLs and headers.
+
+DNS: `aldyn.nrdyn.com` is a CNAME to the site's `*.netlify.app` hostname,
+managed at Namecheap.
+
+## The canonical URL
+
+Every canonical tag, Open Graph / Twitter URL, JSON-LD block, `robots.txt` and
+`sitemap.xml` entry uses **`https://aldyn.nrdyn.com`**, the live domain. If it
+ever changes, swap it everywhere in one pass:
 
 ```bash
-npx vercel        # preview
-npx vercel --prod # production
+grep -rl 'aldyn.nrdyn.com' . --exclude-dir=.git | xargs sed -i '' 's|https://aldyn.nrdyn.com|https://NEW-DOMAIN|g'
 ```
-
-## Before the first production deploy
-
-The canonical URL is currently **`https://aldyn.nrdyn.com`** as a placeholder.
-Once the real domain is attached in Vercel, swap it everywhere in one pass:
-
-```bash
-grep -rl 'aldyn.nrdyn.com' . --exclude-dir=.git | xargs sed -i '' 's|https://aldyn.nrdyn.com|https://YOUR-DOMAIN|g'
-```
-
-That covers the `<link rel="canonical">` tags, the Open Graph / Twitter URLs, the
-JSON-LD blocks, `robots.txt` and `sitemap.xml`.
 
 ## Assets
 
 - `assets/mark.webp` — the Aldyn crystal mark (favicons derived from it)
-- `assets/og-image.png` — social card, shared with `nrdyn.com/aldyn`
+- `assets/og-image.png` — social card, shared with `nrdyn.com/products`
 - `assets/shots/` — product screenshots (WebP)
 
 Screenshots are referenced with explicit `width`/`height` so the page doesn't
