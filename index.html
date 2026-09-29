@@ -62,8 +62,8 @@
   <nav class="nav">
     <a class="brand" href="/"><img src="/assets/mark.webp" alt="" width="34" height="34">Aldyn</a>
     <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How it works</a>
       <a href="/install">Install</a>
       <a href="/support">Support</a>
       <a class="btn" href="mailto:info@nrdyn.com?subject=Aldyn%20access">Request access</a>
@@ -72,161 +72,45 @@
 
   <main id="main">
   <header class="hero">
-    <div>
-      <img class="hero-mark" src="/assets/mark.webp" alt="Aldyn logo" width="84" height="84">
-      <h1>Aldyn</h1>
-      <p class="tag">Your entire IRS audit, in one managed case — on your own machine.</p>
-      <p class="sub">Aldyn reads your Gmail over IMAP and turns every inbound attorney and IRS message — body, subject <em>and</em> attachments — into an organized case: filed to the right business and attorney, with each ask tracked as a deadline and a reply already drafted. Postgres and Redis run in Docker on your Mac. The AI brain is Claude Desktop, on your own subscription. There is no hosted database and no per-token bill.</p>
+    <div class="hero-inner">
+      <span class="pill"><span class="dot" aria-hidden="true"></span>Local-first IRS &amp; attorney case management</span>
+      <img class="hero-mark" src="/assets/mark.webp" alt="Aldyn logo" width="76" height="76">
+      <h1>Your entire IRS audit, in one managed case — on your own machine.</h1>
+      <p class="sub">Aldyn reads your Gmail over IMAP and turns every inbound attorney and IRS message — body, subject <em>and</em> attachments — into an organized case: filed to the right business and attorney, with each ask tracked as a deadline and a reply already drafted. Postgres and Redis run in Docker on your Mac. The AI brain is Claude Desktop, on your own subscription. No hosted database, no per-token bill.</p>
       <div class="cta">
         <a class="btn" href="mailto:info@nrdyn.com?subject=Aldyn%20access">Request access</a>
-        <a class="btn btn-ghost" href="/install">See how it installs →</a>
+        <a class="btn btn-ghost" href="/how-it-works">See how it works</a>
       </div>
       <p class="fine"><span>macOS 12 or later</span> · <span>Docker Desktop</span> · <span>Claude subscription</span> · <span>Data stays on your Mac</span></p>
     </div>
-    <div class="hero-shot">
+    <div class="hero-media">
       <img src="/assets/shots/aldyn-laptop-overview.webp" alt="Aldyn running on a laptop: the Mail view listing attorney threads, each tagged with its business, its IRS notice, and a &quot;Needs filing&quot; flag." width="1398" height="852" fetchpriority="high">
     </div>
   </header>
 
-  <section id="features">
-    <p class="eyebrow">Everything on one machine</p>
-    <h2 class="title">The audit stops living in your inbox.</h2>
+  <section id="explore">
+    <p class="eyebrow">The audit stops living in your inbox</p>
+    <h2 class="title">One machine. Every notice, filed and answered.</h2>
     <p class="lede">A notice arrives, an attorney replies, an IDR lands with four separate asks buried in a paragraph. Aldyn pulls that apart the moment it arrives and puts every piece where it belongs — so the case file assembles itself while you work.</p>
     <div class="grid">
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h4.2l1.8 2.8h6l1.8-2.8H21"/><path d="M5.6 5h12.8l2.6 8v4.2a1.8 1.8 0 0 1-1.8 1.8H4.8A1.8 1.8 0 0 1 3 17.2V13z"/></svg></div>
-        <h3>Every inbox, one thread</h3>
-        <p>Connect any number of Gmail accounts. All of them flow into one threaded Mail view you can filter by account, attorney, business, tag, direction or sender. Reply, Reply All, Forward and Compose all send over real SMTP — on your click.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.4A1.8 1.8 0 0 1 4.8 5.6H9l2 2.4h8.2A1.8 1.8 0 0 1 21 9.8v7.6a1.8 1.8 0 0 1-1.8 1.8H4.8A1.8 1.8 0 0 1 3 17.4z"/><path d="M7 5.6V4.4A1.4 1.4 0 0 1 8.4 3h4"/></svg></div>
-        <h3>Cases that assemble themselves</h3>
-        <p>Each notice becomes a case — CP504, CP2000, LT11, a Form 4564 IDR — carrying its own action items, full email timeline, extracted documents and pending drafts. Nothing is filed in two places.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12.4" r="8.4"/><path d="M12 7.6v4.8l3.2 2"/></svg></div>
-        <h3>Deadlines pulled out of the mail</h3>
-        <p>Every ask in an attorney email becomes one tracked item — document request, question, action, or FYI. Overdue and due-this-week surface on Today, with urgency colours and an internal date ahead of the real one.</p>
-      </div>
-      <div class="card ai">
+      <a class="card link" href="/features">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.4A1.8 1.8 0 0 1 4.8 5.6H9l2 2.4h8.2A1.8 1.8 0 0 1 21 9.8v7.6a1.8 1.8 0 0 1-1.8 1.8H4.8A1.8 1.8 0 0 1 3 17.4z"/></svg></div>
+        <h3>What Aldyn does</h3>
+        <p>Cases that assemble themselves, deadlines pulled out of the mail, a Defense check on scope, and drafts you approve before anything sends.</p>
+        <span class="more">Explore the features</span>
+      </a>
+      <a class="card link" href="/how-it-works">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l7 2.9v5.4c0 4.3-2.9 7.6-7 9.1-4.1-1.5-7-4.8-7-9.1V6.1z"/><path d="M9 12.2l2.2 2.2 4.3-4.4"/></svg></div>
-        <h3>Defense check</h3>
-        <p>An independent second read of the case file: scope plus tax-law analysis, run against your engagement letter, flagging what a request reaches beyond. It is a second opinion to raise with your representation — not a legal opinion.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.6"/><path d="M15.9 15.9L21 21"/><path d="M8.4 9.8h5.2M8.4 12.4h3.2"/></svg></div>
-        <h3>Documents you can actually find</h3>
-        <p>Every IRS notice and attachment — PDF, DOCX, image, ZIP — is extracted on arrival and indexed with Postgres full-text search. Ask for the 2023 bank statements and get the file, not a folder.</p>
-      </div>
-      <div class="card ai">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20.2h4L20 8.2a2.1 2.1 0 0 0-3-3L5 17.2z"/><path d="M14.6 6.6l2.9 2.9"/><path d="M4 20.2l.9-3.1"/></svg></div>
-        <h3>Drafted, never sent</h3>
-        <p>The AI files mail, extracts deadlines, summarizes threads and writes the reply. It cannot send. Every outbound message waits in Aldyn's composer until you read it and hit send yourself.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="screens">
-    <p class="eyebrow">A look inside</p>
-    <h2 class="title">Built for the way a notice actually arrives.</h2>
-    <div class="shots">
-      <figure class="shot">
-        <img src="/assets/shots/aldyn-shot-inbox.webp" alt="Aldyn's Mail view: a sidebar with Deadlines, Mail, Entities, Attorneys, Documents and Knowledge base, beside threads tagged by business and IRS notice." width="1238" height="774" loading="lazy">
-        <figcaption><b>Mail</b>Every connected inbox in one place, each thread already tagged with its business, its attorney and the notice it belongs to.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="/assets/shots/aldyn-shot-cases.webp" alt="A list of Aldyn cases: CP504 Final Notice of Intent to Levy, CP2000 Underreported Income, Form 4564 IDR, and an LT11 levy notice." width="979" height="612" loading="lazy">
-        <figcaption><b>Cases</b>One case per notice, with the live ones marked. Open it and the whole correspondence history is already attached.</figcaption>
-      </figure>
-      <figure class="shot wide">
-        <img src="/assets/shots/aldyn-shot-deadlines.webp" alt="Aldyn's deadline list showing a Form 12153 CDP hearing request three days late, a bank-statement pull one day late, and a CP2000 response due in two days." width="950" height="594" loading="lazy">
-        <figcaption><b>Deadlines</b>Not a flat to-do list — every item carries its case, its attorney, a criticality, and an internal date set ahead of the filing date.</figcaption>
-      </figure>
-      <figure class="shot wide">
-        <img src="/assets/shots/aldyn-shot-defense.webp" alt="A thread in Aldyn with a Defense check panel and a Summarize this thread with AI action, both running in the background." width="1534" height="959" loading="lazy">
-        <figcaption><b>Defense check</b>Scope and tax-law analysis on the case, plus a thread summary — both run in the background while you keep working.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section id="how">
-    <p class="eyebrow">How it works</p>
-    <h2 class="title">Your Mac does the storing. Your Claude does the thinking.</h2>
-    <p class="lede">Aldyn has no server of ours to talk to. It exposes itself to Claude Desktop as an MCP server — a local, 24-tool surface over the running app — so the reasoning happens on the Claude subscription you already pay for, with no API key to manage and nothing metered per token.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="num">1</div>
-        <h3>Mail arrives</h3>
-        <p>The poller pulls your connected inboxes over IMAP — INBOX and Sent — and extracts the text of every attachment into a local Postgres.</p>
-      </div>
-      <div class="step">
-        <div class="num">2</div>
-        <h3>Claude reads it</h3>
-        <p>A Cowork session drains Aldyn's request queue through MCP: it reads the mail, the case and the documents, entirely on your machine.</p>
-      </div>
-      <div class="step">
-        <div class="num">3</div>
-        <h3>It gets filed</h3>
-        <p>Right business, right attorney, right case. One tracked item per ask, a reply drafted, and items the latest correspondence already satisfies proposed as done.</p>
-      </div>
-      <div class="step">
-        <div class="num">4</div>
-        <h3>You send</h3>
-        <p>You approve the completions and send the reply from Aldyn's composer. The AI never sends anything on your behalf.</p>
-      </div>
-    </div>
-    <div class="flow">
-      <span class="node">Your Gmail<small>IMAP + SMTP</small></span>
-      <span class="arrow" aria-hidden="true">→</span>
-      <span class="node">Aldyn on your Mac<small>Postgres + Redis in Docker · localhost only</small></span>
-      <span class="arrow" aria-hidden="true">→</span>
-      <span class="node">Claude Desktop<small>your subscription, over MCP</small></span>
-    </div>
-  </section>
-
-  <section id="install-teaser">
-    <div class="panel">
-      <div>
-        <p class="eyebrow">Not on an app store</p>
-        <h2 class="title tight">Because it isn't a cloud product.</h2>
-        <p class="lede flush">Aldyn is a Mac app that brings its own database with it, so we hand it to you directly as a signed-off installer rather than through a storefront. The <code>.dmg</code> carries the app image, Postgres, Redis and the installer — you drag it to Applications and the first launch does the rest, including registering Aldyn with Claude Desktop.</p>
-      </div>
-      <div>
-        <ul class="reqs">
-          <li><b>macOS 12+</b></li>
-          <li><b>Docker Desktop</b></li>
-          <li><b>Claude Desktop</b></li>
-          <li><b>~10 GB free disk</b></li>
-        </ul>
-        <p class="muted flush-top">First launch takes one to three minutes: it verifies Docker, loads the bundled images, starts the stack, and opens the app at <code>localhost:8000</code>. Total install time, prerequisites included, is about 10–15 minutes.</p>
-        <div class="cta spaced">
-          <a class="btn btn-ghost" href="/install">Read the full walkthrough →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="privacy">
-    <p class="eyebrow">Local by architecture</p>
-    <h2 class="title">Taxpayer data that never touches our infrastructure.</h2>
-    <p class="lede">This isn't a privacy setting you switch on. Nrdyn operates no server that Aldyn talks to, so there is nothing for us to see, store, subpoena or lose.</p>
-    <div class="panel">
-      <div>
-        <ul>
-          <li>Postgres and Redis run in Docker containers on your Mac. There is no hosted database and no cloud sync.</li>
-          <li>The app listens on <code>localhost:8000</code> only — no inbound network exposure, no firewall changes needed.</li>
-          <li>Your Gmail App Password is encrypted at rest with a passphrase you choose (PBKDF2 + Fernet). Your real Google password is never seen.</li>
-          <li>Attachments and extracted text stay in <code>data/attachments/</code> on your disk. Back it up, move it, or delete it — it's yours.</li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li>Nrdyn receives no telemetry, no analytics, no crash reports and no copies of your mail.</li>
-          <li>AI features run through <b>your own Claude Desktop subscription</b> — so case content you send to the AI is processed by Anthropic under your Claude agreement, not ours. The <a href="/privacy">privacy policy</a> spells out exactly what that covers.</li>
-          <li>Every action is written to a local, human-readable audit log.</li>
-          <li>Turn the AI off and document search, filing, deadlines and mail keep working.</li>
-        </ul>
-      </div>
+        <h3>How it works</h3>
+        <p>Your Mac does the storing; your Claude does the thinking. No server of ours, no API key, nothing metered per token.</p>
+        <span class="more">See the architecture</span>
+      </a>
+      <a class="card link" href="/install">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11m0 0l-4-4m4 4l4-4M4.5 19.5h15"/></svg></div>
+        <h3>Install it</h3>
+        <p>A signed-off <code>.dmg</code> that brings its own database. Drag it to Applications; the first launch does the rest, in about 10–15 minutes.</p>
+        <span class="more">Read the walkthrough</span>
+      </a>
     </div>
   </section>
 
@@ -244,7 +128,7 @@
 
   <footer>
     <div>
-      <a href="/install">Install</a><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="mailto:info@nrdyn.com">info@nrdyn.com</a>
+      <a href="/features">Features</a><a href="/how-it-works">How it works</a><a href="/install">Install</a><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="mailto:info@nrdyn.com">info@nrdyn.com</a>
     </div>
     <div>© 2026 Nrdyn LLC. Aldyn is proprietary software. macOS and Mac are trademarks of Apple Inc.</div>
   </footer>

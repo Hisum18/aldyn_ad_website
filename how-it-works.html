@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works — Aldyn</title>
+<meta name="description" content="How Aldyn works: your Mac does the storing, your Claude does the thinking. Mail arrives over IMAP, Claude Desktop reads it over a local MCP server, it gets filed, and you send. No server of ours, no API key, nothing metered per token.">
+<link rel="canonical" href="https://aldyn.nrdyn.com/how-it-works">
+<meta name="theme-color" content="#0B0C10">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aldyn">
+<meta property="og:title" content="How it works — Aldyn">
+<meta property="og:description" content="Your Mac does the storing; your Claude does the thinking. Aldyn exposes itself to Claude Desktop as a local MCP server — no API key, nothing metered per token.">
+<meta property="og:url" content="https://aldyn.nrdyn.com/how-it-works">
+<meta property="og:image" content="https://aldyn.nrdyn.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://aldyn.nrdyn.com/assets/og-image.png">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <nav class="nav">
+    <a class="brand" href="/"><img src="/assets/mark.webp" alt="" width="34" height="34">Aldyn</a>
+    <div class="nav-links">
+      <a href="/features">Features</a>
+      <a href="/how-it-works" aria-current="page">How it works</a>
+      <a href="/install">Install</a>
+      <a href="/support">Support</a>
+      <a class="btn" href="mailto:info@nrdyn.com?subject=Aldyn%20access">Request access</a>
+    </div>
+  </nav>
+
+  <main id="main">
+  <header class="page-head">
+    <p class="eyebrow">How it works</p>
+    <h2 class="title">Your Mac does the storing. Your Claude does the thinking.</h2>
+    <p class="lede">Aldyn has no server of ours to talk to. It exposes itself to Claude Desktop as an MCP server — a local, 24-tool surface over the running app — so the reasoning happens on the Claude subscription you already pay for, with no API key to manage and nothing metered per token.</p>
+  </header>
+
+  <section id="how">
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Mail arrives</h3>
+        <p>The poller pulls your connected inboxes over IMAP — INBOX and Sent — and extracts the text of every attachment into a local Postgres.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Claude reads it</h3>
+        <p>A Cowork session drains Aldyn's request queue through MCP: it reads the mail, the case and the documents, entirely on your machine.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>It gets filed</h3>
+        <p>Right business, right attorney, right case. One tracked item per ask, a reply drafted, and items the latest correspondence already satisfies proposed as done.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>You send</h3>
+        <p>You approve the completions and send the reply from Aldyn's composer. The AI never sends anything on your behalf.</p>
+      </div>
+    </div>
+    <div class="flow">
+      <span class="node">Your Gmail<small>IMAP + SMTP</small></span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg></span>
+      <span class="node">Aldyn on your Mac<small>Postgres + Redis in Docker · localhost only</small></span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg></span>
+      <span class="node">Claude Desktop<small>your subscription, over MCP</small></span>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <p class="eyebrow">Local by architecture</p>
+    <h2 class="title">Taxpayer data that never touches our infrastructure.</h2>
+    <p class="lede">This isn't a privacy setting you switch on. Nrdyn operates no server that Aldyn talks to, so there is nothing for us to see, store, subpoena or lose.</p>
+    <div class="panel">
+      <div>
+        <ul>
+          <li>Postgres and Redis run in Docker containers on your Mac. There is no hosted database and no cloud sync.</li>
+          <li>The app listens on <code>localhost:8000</code> only — no inbound network exposure, no firewall changes needed.</li>
+          <li>Your Gmail App Password is encrypted at rest with a passphrase you choose (PBKDF2 + Fernet). Your real Google password is never seen.</li>
+          <li>Attachments and extracted text stay in <code>data/attachments/</code> on your disk. Back it up, move it, or delete it — it's yours.</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>Nrdyn receives no telemetry, no analytics, no crash reports and no copies of your mail.</li>
+          <li>AI features run through <b>your own Claude Desktop subscription</b> — so case content you send to the AI is processed by Anthropic under your Claude agreement, not ours. The <a href="/privacy">privacy policy</a> spells out exactly what that covers.</li>
+          <li>Every action is written to a local, human-readable audit log.</li>
+          <li>Turn the AI off and document search, filing, deadlines and mail keep working.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="install-teaser">
+    <div class="panel">
+      <div>
+        <p class="eyebrow">Not on an app store</p>
+        <h2 class="title tight">Because it isn't a cloud product.</h2>
+        <p class="lede flush">Aldyn is a Mac app that brings its own database with it, so we hand it to you directly as a signed-off installer rather than through a storefront. The <code>.dmg</code> carries the app image, Postgres, Redis and the installer — you drag it to Applications and the first launch does the rest, including registering Aldyn with Claude Desktop.</p>
+      </div>
+      <div>
+        <ul class="reqs">
+          <li><b>macOS 12+</b></li>
+          <li><b>Docker Desktop</b></li>
+          <li><b>Claude Desktop</b></li>
+          <li><b>~10 GB free disk</b></li>
+        </ul>
+        <p class="muted flush-top">First launch takes one to three minutes: it verifies Docker, loads the bundled images, starts the stack, and opens the app at <code>localhost:8000</code>. Total install time, prerequisites included, is about 10–15 minutes.</p>
+        <div class="cta spaced">
+          <a class="btn btn-ghost" href="/install">Read the full walkthrough</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta-band">
+      <h2>Request access to Aldyn</h2>
+      <p>Tell us about your practice and we'll send the installer, the deployment guide, and a walkthrough of your first case.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:info@nrdyn.com?subject=Aldyn%20access">Request access</a>
+        <a class="btn btn-ghost" href="/features">See the features</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div>
+      <a href="/features">Features</a><a href="/how-it-works">How it works</a><a href="/install">Install</a><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="mailto:info@nrdyn.com">info@nrdyn.com</a>
+    </div>
+    <div>© 2026 Nrdyn LLC. Aldyn is proprietary software. macOS and Mac are trademarks of Apple Inc.</div>
+  </footer>
+</div>
+</body>
+</html>
